@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravesend Landscaping Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body, html { margin:0; font-family:'Montserrat', sans-serif; color:#333; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#fff; position:sticky; top:0; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+  header h1 { margin:0; font-size:1.5rem; color:#2e7d32; }
+  nav ul { list-style:none; margin:0; padding:0; display:flex; gap:1rem; }
+  nav a { text-decoration:none; color:#333; font-weight:600; }
+  .hero { position:relative; overflow:hidden; }
+  .slides { display:flex; transition:transform .5s ease; }
+  .slide { min-width:100%; height:60vh; background-position:center; background-size:cover; }
+  .cta { position:absolute; bottom:20%; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.4); padding:2rem; color:#fff; text-align:center; border-radius:8px; }
+  .cta button { background:#43a047; border:none; color:#fff; padding:0.75rem 1.5rem; font-size:1rem; border-radius:4px; cursor:pointer; }
+  .section { padding:4rem 2rem; text-align:center; }
+  .section h2 { color:#2e7d32; font-size:2rem; margin-bottom:1rem; }
+  .cards { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; }
+  .card { width:300px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; }
+  .card img { width:100%; height:200px; object-fit:cover; }
+  .card-content { padding:1rem; }
+  .card-content h3 { margin:0 0 0.5rem; color:#43a047; }
+  .card-content p { font-size:0.9rem; color:#555; }
+  .footer { background:#2e7d32; color:#fff; text-align:center; padding:2rem 1rem; }
+  @media(max-width:768px){ nav ul { display:none; } .slides { height:40vh; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Gravesend Landscaping</h1>
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="slides">
+    <div class="slide" style="background-image:url('https://source.unsplash.com/1600x900/?garden,landscaping')"></div>
+    <div class="slide" style="background-image:url('https://source.unsplash.com/1600x900/?paving,garden')"></div>
+    <div class="slide" style="background-image:url('https://source.unsplash.com/1600x900/?artificial,turf')"></div>
+  </div>
+  <div class="cta">
+    <h2>Stunning Outdoor Spaces Start Here</h2>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+  </div>
+</div>
+
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?garden,design">
+      <div class="card-content"><h3>Garden Design</h3><p>Creative landscaping tailored to your home.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?artificial,grass">
+      <div class="card-content"><h3>Artificial Turf</h3><p>Year-round green lawns, no maintenance.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?driveway,paving">
+      <div class="card-content"><h3>Driveways & Paving</h3><p>Enhance curb appeal with quality materials.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <h2>Before & After</h2>
+  <div class="cards">
+    <div class="card"><img src="https://source.unsplash.com/300x200/?garden,before"><div class="card-content"><h3>Before</h3></div></div>
+    <div class="card"><img src="https://source.unsplash.com/300x200/?garden,after"><div class="card-content"><h3>After</h3></div></div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p>📞 07700 900123 • 📧 info@gravesendlandscaping.co.uk</p>
+  <p>Or use our AI chatbot (coming soon!)</p>
+</section>
+
+<footer class="footer">
+  &copy; 2025 Gravesend Landscaping. All rights reserved.
+</footer>
+
+<script>
+  let idx = 0;
+  const slides = document.querySelector('.slides');
+  const total = document.querySelectorAll('.slide').length;
+  setInterval(() => {
+    idx = (idx + 1) % total;
+    slides.style.transform = `translateX(-${idx * 100}%)`;
+  }, 5000);
+</script>
+</body>
+</html>
